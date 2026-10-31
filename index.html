@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+  <title>Shri Shiv Shakti Mandir | Auspicious Darshan, Daily Panchangam & Pujas</title>
+  <meta name="description" content="Official mobile portal for Shri Shiv Shakti Mandir. View live daily deity darshan, temple aarti timetable, daily panchangam, online puja bookings, and temple hundi donations.">
+  <meta name="theme-color" content="#E85D04">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Favicon / Touch Icon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🪔</text></svg>">
+
+  <!-- Google Fonts: Spiritual Serif & High-Legibility Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top Auspicious Ribbon -->
+  <aside class="auspicious-ribbon" aria-label="Sacred invocation banner">
+    <div class="ribbon-content">
+      <span class="om-symbol">🕉️</span>
+      <span class="ribbon-text" id="ribbonMantra">|| ॐ नमः शिवाय • ॐ ऐं ह्रीं क्लीं चामुण्डायै विच्चे ||</span>
+      <span class="om-symbol">🕉️</span>
+    </div>
+  </aside>
+
+  <!-- App Wrapper for Mobile-First & Desktop Framing -->
+  <div class="app-container">
+    
+    <!-- Primary Header & Temple Status Bar -->
+    <header class="temple-header" id="topHeader">
+      <div class="header-main-row">
+        <div class="temple-identity">
+          <div class="temple-emblem" id="bellTrigger" title="Tap to ring sacred temple bell">
+            <span class="emblem-icon">🪔</span>
+            <span class="bell-wave"></span>
+          </div>
+          <div class="temple-titles">
+            <h1 class="temple-name" data-i18n="templeName">Shri Shiv Shakti Mandir</h1>
+            <p class="temple-tagline" data-i18n="templeTagline">Sacred Sanctuary of Shiva & Shakti</p>
+          </div>
+        </div>
+
+        <div class="header-controls">
+          <!-- Bell Chime Button -->
+          <button class="icon-btn bell-chime-btn" id="ringBellBtn" aria-label="Ring Temple Bell" title="Ring Auspicious Temple Bell">
+            <span class="bell-icon">🔔</span>
+            <span class="bell-label">Bell</span>
+          </button>
+
+          <!-- Language Selector -->
+          <div class="lang-dropdown-wrapper">
+            <label for="langSelect" class="sr-only">Choose Language</label>
+            <select id="langSelect" class="lang-selector" aria-label="Select language">
+              <option value="en">English (EN)</option>
+              <option value="hi">हिन्दी (HI)</option>
+              <option value="gu">ગુજરાતી (GU)</option>
+              <option value="sa">संस्कृतम् (SA)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Temple Status & Hours Pill -->
+      <div class="status-ribbon">
+        <div class="status-indicator-badge" id="templeStatusBadge">
+          <span class="status-dot pulse-dot"></span>
+          <span class="status-text" id="templeStatusText">OPEN NOW • Closes 1:00 PM</span>
+        </div>
+        <div class="senior-font-toggle" title="Accessibility: Adjust text size for seniors">
+          <span class="font-toggle-label">Text:</span>
+          <button id="fontNormalBtn" class="font-btn active" aria-label="Standard font size">A</button>
+          <button id="fontLargeBtn" class="font-btn" aria-label="Larger font size for seniors">A+</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent">
+
+      <!-- Section 1: Today's Alankaram & Deity Darshan (Hero Carousel) -->
+      <section class="section darshan-section" id="darshanSection" aria-labelledby="darshanTitle">
+        <div class="section-header">
+          <div class="header-title-group">
+            <span class="sacred-badge" data-i18n="badgeTodayDarshan">🪔 TODAY'S ALANKARAM & DARSHAN</span>
+            <h2 id="darshanTitle" class="section-title" data-i18n="darshanHeading">Daily Divine Darshan</h2>
+          </div>
+          <span class="live-pill"><span class="live-blink"></span> LIVE TODAY</span>
+        </div>
+
+        <div class="darshan-carousel-card" id="darshanCard">
+          <div class="carousel-container">
+            <div class="carousel-track" id="darshanTrack">
+              <!-- Slide 1: Shiva Lingam -->
+              <div class="carousel-slide active" data-deity="shiva">
+                <div class="slide-media">
+                  <img src="assets/images/shiva_darshan.jpg" alt="Divine Shiva Lingam Darshan with Bilva leaves and marigold garlands" loading="eager" id="heroImage1">
+                  <div class="media-overlay">
+                    <span class="deity-badge">Mahadev Garbhagriha</span>
+                    <button class="zoom-btn" onclick="openDarshanModal('shiva')" aria-label="View Fullscreen Darshan">🔍 Expand</button>
+                  </div>
+                </div>
+                <div class="slide-caption">
+                  <div class="caption-title-row">
+                    <h3 class="deity-name">Shri Someshwar Jyotirlinga Alankaram</h3>
+                    <span class="alankaram-time">Today, 06:30 AM</span>
+                  </div>
+                  <p class="alankaram-desc">Adorned with fresh Bilva Patra, Marigold crowns, sacred Bhasma Tripundra, and pure Gomukhi Ganga water during morning Rudrabhishekam.</p>
+                </div>
+              </div>
+
+              <!-- Slide 2: Maa Durga / Shakti -->
+              <div class="carousel-slide" data-deity="durga">
+                <div class="slide-media">
+                  <img src="assets/images/durga_darshan.jpg" alt="Maa Durga Shakti idol decorated in crimson silk saree" loading="lazy" id="heroImage2">
+                  <div class="media-overlay">
+                    <span class="deity-badge">Maa Shakti Sannidhi</span>
+                    <button class="zoom-btn" onclick="openDarshanModal('durga')" aria-label="View Fullscreen Darshan">🔍 Expand</button>
+                  </div>
+                </div>
+                <div class="slide-caption">
+                  <div class="caption-title-row">
+                    <h3 class="deity-name">Mata Durga Shakti Rajarajeshwari</h3>
+                    <span class="alankaram-time">Today, 07:15 AM</span>
+                  </div>
+                  <p class="alankaram-desc">Adorned in royal crimson zari silk, fresh jasmine veni, fragrant kumkum archana, and golden trishula embellishments.</p>
+                </div>
+              </div>
+
+              <!-- Slide 3: Ganesha -->
+              <div class="carousel-slide" data-deity="ganesha">
+                <div class="slide-media">
+                  <img src="assets/images/ganesha_darshan.jpg" alt="Lord Ganesha sanctum with modak offerings and yellow garlands" loading="lazy" id="heroImage3">
+                  <div class="media-overlay">
+                    <span class="deity-badge">Vighnaharta Mandapam</span>
+                    <button class="zoom-btn" onclick="openDarshanModal('ganesha')" aria-label="View Fullscreen Darshan">🔍 Expand</button>
+                  </div>
+                </div>
+                <div class="slide-caption">
+                  <div class="caption-title-row">
+                    <h3 class="deity-name">Shri Siddhi Vinayaka Ganapati</h3>
+                    <span class="alankaram-time">Today, 07:45 AM</span>
+                  </div>
+                  <p class="alankaram-desc">Sanctified with Durva grass clusters, fragrant red hibiscus, sandalwood paste, and 21 fresh steamed modak prasadams.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Carousel Navigation Dots & Arrows -->
+            <div class="carousel-controls">
+              <button class="carousel-arrow prev" id="carouselPrevBtn" aria-label="Previous deity">‹</button>
+              <div class="carousel-indicators" id="carouselDots">
+                <button class="dot active" data-index="0" aria-label="Slide 1"></button>
+                <button class="dot" data-index="1" aria-label="Slide 2"></button>
+                <button class="dot" data-index="2" aria-label="Slide 3"></button>
+              </div>
+              <button class="carousel-arrow next" id="carouselNextBtn" aria-label="Next deity">›</button>
+            </div>
+          </div>
+
+          <!-- Quick Aarti Status Banner below carousel -->
+          <div class="darshan-quick-aarti">
+            <div class="aarti-status-chip">
+              <span class="chip-label" data-i18n="completedAarti">Last Completed:</span>
+              <strong id="lastCompletedAarti">Kakad & Mangala Aarti (07:00 AM)</strong>
+            </div>
+            <div class="aarti-status-chip highlight">
+              <span class="chip-label" data-i18n="nextAarti">Next Aarti:</span>
+              <strong id="nextUpcomingAarti">Sandhya Aarti in 2 hrs</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Daily Panchangam (Auspicious Timings) -->
+      <section class="section panchangam-section" id="panchangamSection" aria-labelledby="panchangTitle">
+        <div class="section-header">
+          <div class="header-title-group">
+            <span class="sacred-badge" data-i18n="badgePanchangam">📅 VEDIC PANCHANGAM</span>
+            <h2 id="panchangTitle" class="section-title" data-i18n="panchangHeading">Today's Sacred Almanac</h2>
+          </div>
+          <span class="panchang-date" id="currentVedicDate">Shukla Paksha Dashami</span>
+        </div>
+
+        <div class="panchangam-card">
+          <div class="panchangam-grid">
+            <!-- Tithi -->
+            <div class="panchang-item">
+              <span class="panchang-icon">🌕</span>
+              <div class="panchang-details">
+                <span class="panchang-label" data-i18n="lblTithi">Tithi</span>
+                <strong class="panchang-val" id="panchangTithi">Shukla Dashami</strong>
+                <span class="panchang-sub" id="panchangTithiSub">Until 04:18 PM</span>
+              </div>
+            </div>
+
+            <!-- Nakshatra -->
+            <div class="panchang-item">
+              <span class="panchang-icon">✨</span>
+              <div class="panchang-details">
+                <span class="panchang-label" data-i18n="lblNakshatra">Nakshatra</span>
+                <strong class="panchang-val" id="panchangNakshatra">Rohini</strong>
+                <span class="panchang-sub" id="panchangNakshatraSub">Auspicious creative energy</span>
+              </div>
+            </div>
+
+            <!-- Abhijit Muhurat -->
+            <div class="panchang-item auspicious-box">
+              <span class="panchang-icon">⭐</span>
+              <div class="panchang-details">
+                <div class="label-with-tag">
+                  <span class="panchang-label" data-i18n="lblAbhijit">Abhijit Muhurat</span>
+                  <span class="micro-badge green">Auspicious</span>
+                </div>
+                <strong class="panchang-val" id="panchangAbhijit">11:52 AM – 12:44 PM</strong>
+                <span class="panchang-sub">Best for Pujas & New Beginnings</span>
+              </div>
+            </div>
+
+            <!-- Rahu Kalam -->
+            <div class="panchang-item warning-box">
+              <span class="panchang-icon">⚠️</span>
+              <div class="panchang-details">
+                <div class="label-with-tag">
+                  <span class="panchang-label" data-i18n="lblRahuKalam">Rahu Kalam</span>
+                  <span class="micro-badge red">Avoid Auspicious</span>
+                </div>
+                <strong class="panchang-val" id="panchangRahu">03:00 PM – 04:30 PM</strong>
+                <span class="panchang-sub">Avoid initiating ceremonies</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panchang-footer">
+            <div class="sun-timing">
+              <span>🌅 <strong data-i18n="sunrise">Sunrise:</strong> 06:34 AM</span>
+              <span>🌇 <strong data-i18n="sunset">Sunset:</strong> 06:12 PM</span>
+            </div>
+            <div class="panchang-extra">
+              <span>🕉️ <strong data-i18n="samvat">Vikram Samvat:</strong> 2083</span>
+              <span>🌿 <strong data-i18n="yoga">Yoga:</strong> Vriddhi</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Aarti & Darshan Timetable -->
+      <section class="section aarti-section" id="timetableSection" aria-labelledby="aartiTitle">
+        <div class="section-header">
+          <div class="header-title-group">
+            <span class="sacred-badge" data-i18n="badgeAarti">⏱️ AARTI & DARSHAN TIMETABLE</span>
+            <h2 id="aartiTitle" class="section-title" data-i18n="aartiHeading">Daily Temple Schedule</h2>
+          </div>
+          <button class="text-link-btn" id="bellReminderBtn" onclick="notifyAartiReminder()">🔔 Set Reminder</button>
+        </div>
+
+        <div class="aarti-timetable-list" id="aartiList">
+          <!-- Item 1 -->
+          <div class="timetable-item completed">
+            <div class="item-time-col">
+              <span class="time-digit">07:00</span>
+              <span class="time-period">AM</span>
+            </div>
+            <div class="item-info-col">
+              <h4 class="item-name">Mangala & Kakad Aarti</h4>
+              <p class="item-desc">Waking deities with sacred camphor deepam & Suprabhatam chanting.</p>
+            </div>
+            <div class="item-badge-col">
+              <span class="status-pill completed-pill">Completed</span>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="timetable-item completed">
+            <div class="item-time-col">
+              <span class="time-digit">12:00</span>
+              <span class="time-period">PM</span>
+            </div>
+            <div class="item-info-col">
+              <h4 class="item-name">Madhyanna (Mid-Day) Aarti</h4>
+              <p class="item-desc">Maha Naivedya bhog offering followed by midday temple rest (1:00 PM).</p>
+            </div>
+            <div class="item-badge-col">
+              <span class="status-pill completed-pill">Completed</span>
+            </div>
+          </div>
+
+          <!-- Item 3: Active / Upcoming Highlight -->
+          <div class="timetable-item upcoming current-focus">
+            <div class="item-time-col">
+              <span class="time-digit">06:30</span>
+              <span class="time-period">PM</span>
+            </div>
+            <div class="item-info-col">
+              <div class="name-with-tag">
+                <h4 class="item-name">Sandhya (Evening) Aarti</h4>
+                <span class="active-badge">Next In Schedule</span>
+              </div>
+              <p class="item-desc">Grand 108 brass lamp deeparadhana with live dhol, conch and damru.</p>
+            </div>
+            <div class="item-badge-col">
+              <span class="status-pill upcoming-pill">Upcoming</span>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="timetable-item upcoming">
+            <div class="item-time-col">
+              <span class="time-digit">08:45</span>
+              <span class="time-period">PM</span>
+            </div>
+            <div class="item-info-col">
+              <h4 class="item-name">Shej Aarti & Shayan Darshan</h4>
+              <p class="item-desc">Night lullaby hymns for deities and temple closure for the day.</p>
+            </div>
+            <div class="item-badge-col">
+              <span class="status-pill upcoming-pill">Upcoming</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="temple-hours-note">
+          <span class="note-icon">ℹ️</span>
+          <p><strong>Temple Visiting Hours:</strong> Morning 7:00 AM – 1:00 PM | Evening 4:30 PM – 9:00 PM. Sanctum is open continuously on Ekadashi & Festival Days.</p>
+        </div>
+      </section>
+
+      <!-- Section 4: Sevas & Puja Bookings -->
+      <section class="section pujas-section" id="pujasSection" aria-labelledby="pujasTitle">
+        <div class="section-header">
+          <div class="header-title-group">
+            <span class="sacred-badge" data-i18n="badgePujas">🏷️ SEVAS & PUJA BOOKINGS</span>
+            <h2 id="pujasTitle" class="section-title" data-i18n="pujasHeading">Sacred Sevas with Sankalpam</h2>
+          </div>
+          <span class="header-sub" data-i18n="subPujas">In-person & Remote Sankalpam</span>
+        </div>
+
+        <!-- Seva Category Tabs -->
+        <div class="category-tabs" role="tablist">
+          <button class="cat-tab active" data-cat="all" onclick="filterSevas('all')">All Sevas</button>
+          <button class="cat-tab" data-cat="daily" onclick="filterSevas('daily')">Daily Archana</button>
+          <button class="cat-tab" data-cat="special" onclick="filterSevas('special')">Special Abhishek</button>
+          <button class="cat-tab" data-cat="havan" onclick="filterSevas('havan')">Havan & Vahan</button>
+        </div>
+
+        <!-- Puja Cards Grid -->
+        <div class="pujas-grid" id="pujasGrid">
+          <!-- Seva 1: Archana -->
+          <div class="seva-card" data-category="daily">
+            <div class="seva-top-row">
+              <div class="seva-title-block">
+                <span class="seva-icon">🌸</span>
+                <h3 class="seva-name">Nithya Archana</h3>
+              </div>
+              <div class="seva-price-tag">$21</div>
+            </div>
+            <p class="seva-desc">Personalized Archana with chanting of 108 Ashtottara names, Gotra & Nakshatra sankalpam for family blessings.</p>
+            <div class="seva-meta">
+              <span>⏱️ Duration: 15 mins</span>
+              <span>🌿 Prasadam included</span>
+            </div>
+            <button class="btn btn-primary seva-btn" onclick="openPujaModal('Nithya Archana', 21)">Book This Seva</button>
+          </div>
+
+          <!-- Seva 2: Rudrabhishekam -->
+          <div class="seva-card featured" data-category="special">
+            <span class="featured-ribbon">Most Devotional</span>
+            <div class="seva-top-row">
+              <div class="seva-title-block">
+                <span class="seva-icon">🔱</span>
+                <h3 class="seva-name">Maha Rudrabhishekam</h3>
+              </div>
+              <div class="seva-price-tag">$51</div>
+            </div>
+            <p class="seva-desc">Complete Abhishek of Shiva Lingam with Panchamrit (Milk, Curd, Honey, Ghee, Sugar), Gangajal & Bilva leaves with Sri Rudram.</p>
+            <div class="seva-meta">
+              <span>⏱️ Duration: 45 mins</span>
+              <span>🌺 Silver Bilva Prasad</span>
+            </div>
+            <button class="btn btn-primary seva-btn" onclick="openPujaModal('Maha Rudrabhishekam', 51)">Book This Seva</button>
+          </div>
+
+          <!-- Seva 3: Satyanarayan Puja -->
+          <div class="seva-card" data-category="special">
+            <div class="seva-top-row">
+              <div class="seva-title-block">
+                <span class="seva-icon">🪷</span>
+                <h3 class="seva-name">Satyanarayan Maha Puja</h3>
+              </div>
+              <div class="seva-price-tag">$101</div>
+            </div>
+            <p class="seva-desc">Auspicious 5-chapter Katha, Navagraha invocation, panchamrit offering, and sweet sheera prasadam for peace & prosperity.</p>
+            <div class="seva-meta">
+              <span>⏱️ Duration: 90 mins</span>
+              <span>🍲 Sheera Prasadam</span>
+            </div>
+            <button class="btn btn-primary seva-btn" onclick="openPujaModal('Satyanarayan Maha Puja', 101)">Book This Seva</button>
+          </div>
+
+          <!-- Seva 4: Vahan / Vehicle Puja -->
+          <div class="seva-card" data-category="havan">
+            <div class="seva-top-row">
+              <div class="seva-title-block">
+                <span class="seva-icon">🚗</span>
+                <h3 class="seva-name">Vahan / Vehicle Puja</h3>
+              </div>
+              <div class="seva-price-tag">$51</div>
+            </div>
+            <p class="seva-desc">Consecration of new car/motorcycle with Ganesha blessing, coconut breaking, lemon protection, and sacred Swastika vermillion.</p>
+            <div class="seva-meta">
+              <span>⏱️ Duration: 20 mins</span>
+              <span>🥥 Raksha Sutra</span>
+            </div>
+            <button class="btn btn-primary seva-btn" onclick="openPujaModal('Vahan / Vehicle Puja', 51)">Book This Seva</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Upcoming Festivals & Annadanam Sponsorship -->
+      <section class="section festivals-section" id="festivalsSection" aria-labelledby="festivalsTitle">
+        <div class="section-header">
+          <div class="header-title-group">
+            <span class="sacred-badge" data-i18n="badgeFestivals">🍲 FESTIVALS & ANNADANAM</span>
+            <h2 id="festivalsTitle" class="section-title" data-i18n="festivalsHeading">Upcoming Utsavs & Sponsorship</h2>
+          </div>
+        </div>
+
+        <div class="festivals-carousel">
+          <!-- Card 1: Maha Shivaratri -->
+          <div class="festival-banner-card">
+            <div class="fest-header">
+              <span class="fest-date-badge">Mar 8 • All Night</span>
+              <span class="fest-category">Maha Parva</span>
+            </div>
+            <h3 class="fest-title">Maha Shivaratri All-Night Jaagran</h3>
+            <p class="fest-text">Four Prahara Maha Abhishek of Lord Shiva, non-stop chanting of Om Namah Shivaya, midnight Rudra Homa, and Bilva Archana.</p>
+            <div class="fest-action-row">
+              <button class="btn btn-outline" onclick="openPujaModal('Maha Shivaratri 4-Prahara Seva', 151)">Sponsor Shivaratri Seva</button>
+            </div>
+          </div>
+
+          <!-- Card 2: Sunday Annadanam -->
+          <div class="annadanam-card">
+            <div class="anna-icon-banner">
+              <span class="anna-icon">🍲</span>
+              <div>
+                <h4 class="anna-title">Sunday Maha Prasadam / Annadanam</h4>
+                <p class="anna-desc">Serving over 400 devotees with pure sattvic lunch every Sunday. Annadanam is the highest form of Daana.</p>
+              </div>
+            </div>
+            <div class="anna-sponsor-box">
+              <div class="sponsor-status">
+                <span class="status-available-badge">✨ Sponsor Slot Available for Next Sunday</span>
+              </div>
+              <button class="btn btn-accent full-width" onclick="openDonationModalWithCause('Annadanam (Prasadam) Sponsorship', 251)">Sponsor Annadanam ($251)</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Digital Hundi & Temple Giving -->
+      <section class="section hundi-section" id="donateSection" aria-labelledby="hundiTitle">
+        <div class="section-header">
+          <div class="header-title-group">
+            <span class="sacred-badge" data-i18n="badgeHundi">💰 DIGITAL HUNDI & SEVA DAANA</span>
+            <h2 id="hundiTitle" class="section-title" data-i18n="hundiHeading">Temple Giving & Support</h2>
+          </div>
+        </div>
+
+        <div class="hundi-card">
+          <div class="hundi-prompt">
+            <p class="hundi-tagline">“Yad dānam saubhāgyam” — Your sacred contributions maintain the sanctuary, support daily temple rituals, and nourish the community.</p>
+          </div>
+
+          <!-- Preset Auspicious Amounts -->
+          <div class="amount-chips-group" role="radiogroup" aria-label="Select auspicious donation amount">
+            <button type="button" class="amount-chip" data-amount="21" onclick="selectHundiAmount(21)">$21</button>
+            <button type="button" class="amount-chip active" data-amount="51" onclick="selectHundiAmount(51)">$51</button>
+            <button type="button" class="amount-chip" data-amount="101" onclick="selectHundiAmount(101)">$101</button>
+            <button type="button" class="amount-chip" data-amount="251" onclick="selectHundiAmount(251)">$251</button>
+            <button type="button" class="amount-chip" data-amount="501" onclick="selectHundiAmount(501)">$501</button>
+            <button type="button" class="amount-chip custom-chip" data-amount="custom" onclick="selectHundiAmount('custom')">Custom</button>
+          </div>
+
+          <!-- Custom Amount Input -->
+          <div class="custom-amount-wrapper hidden" id="customAmountRow">
+            <span class="currency-prefix">$</span>
+            <input type="number" id="customAmountInput" class="custom-amount-input" placeholder="Enter amount" min="5" max="10000" step="1">
+          </div>
+
+          <!-- Cause Selector Dropdown -->
+          <div class="form-group hundi-cause-group">
+            <label for="hundiCauseSelect" class="form-label">Sponsorship Purpose:</label>
+            <select id="hundiCauseSelect" class="form-input">
+              <option value="General Temple Maintenance">General Temple Maintenance & Sanctum Upkeep</option>
+              <option value="Daily Annadanam (Prasadam)">Sponsor Daily Annadanam & Prasadam Kitchen</option>
+              <option value="Goshala & Cow Care">Goshala / Sacred Cow Care</option>
+              <option value="Priest Welfare & Gurukul">Priest Welfare & Veda Pathashala</option>
+              <option value="Maha Shivaratri Utsav Fund">Upcoming Maha Shivaratri Festival Fund</option>
+            </select>
+          </div>
+
+          <!-- Quick Payment CTA Row -->
+          <div class="hundi-actions">
+            <button class="btn btn-primary full-width cta-donate-btn" id="hundiSubmitBtn" onclick="processHundiDonation()">
+              <span class="btn-icon">🙏</span>
+              <span id="hundiBtnLabel">Offer Dakshina ($51)</span>
+            </button>
+            <div class="quick-pay-options">
+              <span class="pay-option">🍎 Apple Pay</span>
+              <span class="pay-option">⚡ Google Pay</span>
+              <span class="pay-option">💳 Credit / Debit Card</span>
+              <span class="pay-option">🇮🇳 UPI</span>
+            </div>
+            <p class="tax-exempt-note">✓ 501(c)(3) Tax Exempt Organization. Instant receipt provided.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Temple Contact & Location Card -->
+      <section class="section location-section" id="locationSection">
+        <div class="temple-contact-card">
+          <div class="contact-header">
+            <span class="contact-icon">📍</span>
+            <div>
+              <h3 class="contact-title">Visit Shri Shiv Shakti Mandir</h3>
+              <p class="contact-address">108 Omkar Marg, Devotee Enclave, CA 94016</p>
+            </div>
+          </div>
+          <div class="contact-actions-grid">
+            <a href="https://maps.google.com/?q=Hindu+Temple" target="_blank" class="contact-action-btn">
+              <span class="icon">🧭</span>
+              <span>Directions</span>
+            </a>
+            <a href="tel:+18005557448" class="contact-action-btn">
+              <span class="icon">📞</span>
+              <span>Call Priest</span>
+            </a>
+            <a href="https://wa.me/18005557448?text=Namaste%2C+I+would+like+to+inquire+about+temple+sevas" target="_blank" class="contact-action-btn">
+              <span class="icon">💬</span>
+              <span>WhatsApp</span>
+            </a>
+            <a href="mailto:contact@shivshaktimandir.org" class="contact-action-btn">
+              <span class="icon">✉️</span>
+              <span>Email Desk</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <div class="footer-mantra">
+        <span class="om-large">ॐ</span>
+        <p class="sanskrit-blessing">सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः।<br>सर्वे भद्राणि पश्यन्तु मा कश्चिद्दुःखभाग्भवेत्॥</p>
+        <p class="english-blessing">May all beings be happy, healthy, and free from suffering.</p>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Shri Shiv Shakti Mandir Trust. All Rights Reserved.</p>
+        <p class="footer-links">
+          <a href="#darshanSection">Daily Darshan</a> • 
+          <a href="#panchangamSection">Panchangam</a> • 
+          <a href="#pujasSection">Sevas</a> • 
+          <a href="#donateSection">Donate</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- Bottom Navigation Bar (Mobile Optimized) -->
+    <nav class="mobile-bottom-nav" aria-label="Mobile Navigation">
+      <button class="nav-item active" onclick="scrollToSection('topHeader', this)" aria-label="Home">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label" data-i18n="navHome">Home</span>
+      </button>
+      <button class="nav-item" onclick="scrollToSection('darshanSection', this)" aria-label="Darshan">
+        <span class="nav-icon">🪔</span>
+        <span class="nav-label" data-i18n="navDarshan">Darshan</span>
+      </button>
+      <button class="nav-item" onclick="scrollToSection('timetableSection', this)" aria-label="Timings">
+        <span class="nav-icon">⏱️</span>
+        <span class="nav-label" data-i18n="navTimings">Timings</span>
+      </button>
+      <button class="nav-item" onclick="scrollToSection('pujasSection', this)" aria-label="Pujas">
+        <span class="nav-icon">🌸</span>
+        <span class="nav-label" data-i18n="navPujas">Pujas</span>
+      </button>
+      <button class="nav-item" onclick="scrollToSection('donateSection', this)" aria-label="Donate">
+        <span class="nav-icon">💰</span>
+        <span class="nav-label" data-i18n="navDonate">Donate</span>
+      </button>
+    </nav>
+
+    <!-- Multi-Action Floating Action Button (FAB) -->
+    <div class="fab-container" id="fabContainer">
+      <!-- Speed Dial Options -->
+      <div class="fab-speed-dial" id="fabSpeedDial" aria-hidden="true">
+        <!-- Action 1: Get Directions -->
+        <a href="https://maps.google.com/?q=Hindu+Temple" target="_blank" class="fab-item fab-directions" title="Get Directions">
+          <span class="fab-item-label">Directions</span>
+          <span class="fab-item-icon">🧭</span>
+        </a>
+        <!-- Action 2: Call Priest -->
+        <a href="tel:+18005557448" class="fab-item fab-call" title="Call Priest Desk">
+          <span class="fab-item-label">Call Priest</span>
+          <span class="fab-item-icon">📞</span>
+        </a>
+        <!-- Action 3: Quick Hundi Donation -->
+        <button type="button" class="fab-item fab-donate" onclick="openDonationModalWithCause('General Temple Maintenance', 51)" title="Quick Donation">
+          <span class="fab-item-label">Quick Hundi</span>
+          <span class="fab-item-icon">💰</span>
+        </button>
+        <!-- Action 4: WhatsApp Desk -->
+        <a href="https://wa.me/18005557448?text=Namaste+Panditji%2C+I+have+a+question+regarding+temple+sevas" target="_blank" class="fab-item fab-whatsapp" title="WhatsApp Priest">
+          <span class="fab-item-label">WhatsApp</span>
+          <span class="fab-item-icon">💬</span>
+        </a>
+      </div>
+
+      <!-- Main FAB Button -->
+      <button class="fab-main-btn" id="fabToggleBtn" aria-label="Quick Actions Menu" aria-expanded="false">
+        <span class="fab-icon-default">🪔</span>
+        <span class="fab-icon-close">✕</span>
+        <span class="fab-pulse-ring"></span>
+      </button>
+    </div>
+
+  </div> <!-- End .app-container -->
+
+  <!-- Modal 1: Puja Booking Dialog -->
+  <div class="modal-backdrop hidden" id="pujaModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="pujaModalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-om">🕉️</span>
+          <div>
+            <h3 class="modal-title" id="pujaModalTitle">Book Sacred Puja Seva</h3>
+            <span class="modal-sub" id="selectedSevaSubtitle">Nithya Archana ($21)</span>
+          </div>
+        </div>
+        <button class="modal-close-btn" onclick="closePujaModal()" aria-label="Close dialog">✕</button>
+      </div>
+
+      <form id="pujaBookingForm" onsubmit="handlePujaBookingSubmit(event)">
+        <div class="modal-body">
+          <!-- Devotee Full Name -->
+          <div class="form-group">
+            <label for="devoteeName" class="form-label">Devotee Full Name (Yajamana) *</label>
+            <input type="text" id="devoteeName" class="form-input" placeholder="e.g. Rajesh Sharma" required autocomplete="name">
+          </div>
+
+          <!-- Gotra & Nakshatra 2-col -->
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="devoteeGotra" class="form-label">Gotra (Gothram)</label>
+              <input type="text" id="devoteeGotra" class="form-input" list="gotraList" placeholder="e.g. Kashyapa, Bharadwaj" autocomplete="off">
+              <datalist id="gotraList">
+                <option value="Kashyapa"></option>
+                <option value="Bharadwaja"></option>
+                <option value="Vashistha"></option>
+                <option value="Vishwamitra"></option>
+                <option value="Garg"></option>
+                <option value="Kaushik"></option>
+                <option value="Shandilya"></option>
+                <option value="Atri"></option>
+                <option value="Harita"></option>
+                <option value="Gautam"></option>
+                <option value="Shiva Gotra (If unsure)"></option>
+              </datalist>
+            </div>
+
+            <div class="form-group">
+              <label for="devoteeNakshatra" class="form-label">Birth Star (Nakshatra)</label>
+              <select id="devoteeNakshatra" class="form-input">
+                <option value="">Select Nakshatra</option>
+                <option value="Ashwini">Ashwini</option>
+                <option value="Bharani">Bharani</option>
+                <option value="Krittika">Krittika</option>
+                <option value="Rohini">Rohini</option>
+                <option value="Mrigashirsha">Mrigashirsha</option>
+                <option value="Ardra">Ardra</option>
+                <option value="Punarvasu">Punarvasu</option>
+                <option value="Pushya">Pushya</option>
+                <option value="Ashlesha">Ashlesha</option>
+                <option value="Magha">Magha</option>
+                <option value="Purva Phalguni">Purva Phalguni</option>
+                <option value="Uttara Phalguni">Uttara Phalguni</option>
+                <option value="Hasta">Hasta</option>
+                <option value="Chitra">Chitra</option>
+                <option value="Swati">Swati</option>
+                <option value="Vishakha">Vishakha</option>
+                <option value="Anuradha">Anuradha</option>
+                <option value="Jyeshtha">Jyeshtha</option>
+                <option value="Mula">Mula</option>
+                <option value="Purva Ashadha">Purva Ashadha</option>
+                <option value="Uttara Ashadha">Uttara Ashadha</option>
+                <option value="Shravana">Shravana</option>
+                <option value="Dhanishta">Dhanishta</option>
+                <option value="Shatabhisha">Shatabhisha</option>
+                <option value="Purva Bhadrapada">Purva Bhadrapada</option>
+                <option value="Uttara Bhadrapada">Uttara Bhadrapada</option>
+                <option value="Revati">Revati</option>
+                <option value="Not Sure">Not Sure / Priest Blessing</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Sankalpam Occasion -->
+          <div class="form-group">
+            <label for="sankalpamOccasion" class="form-label">Sankalpam Occasion *</label>
+            <select id="sankalpamOccasion" class="form-input" required>
+              <option value="Family Health & Prosperity (Ayur Arogya Soukhyam)">Family Health & Prosperity (Ayur Arogya Soukhyam)</option>
+              <option value="Birthday (Janma Nakshatra Shanti)">Birthday / Janma Nakshatra Shanti</option>
+              <option value="Wedding Anniversary (Vivaha Dinam)">Wedding Anniversary / Vivaha Dinam</option>
+              <option value="Career & Business Success">Career & Business Success</option>
+              <option value="Removal of Obstacles (Vighna Nivarana)">Removal of Obstacles (Vighna Nivarana)</option>
+              <option value="In Memory of Ancestors (Pitri Shanti)">In Memory of Ancestors (Pitri Shanti)</option>
+              <option value="General Gratitude & Bhakti">General Gratitude & Devotion</option>
+            </select>
+          </div>
+
+          <!-- Preferred Date & Time Slot -->
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="pujaDate" class="form-label">Preferred Date *</label>
+              <input type="date" id="pujaDate" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label for="pujaTimeSlot" class="form-label">Preferred Time Slot *</label>
+              <select id="pujaTimeSlot" class="form-input" required>
+                <option value="Morning Session (08:30 AM - 10:00 AM)">Morning (08:30 AM – 10:00 AM)</option>
+                <option value="Midday Session (11:00 AM - 12:30 PM)">Midday (11:00 AM – 12:30 PM)</option>
+                <option value="Evening Session (05:00 PM - 06:30 PM)">Evening (05:00 PM – 06:30 PM)</option>
+                <option value="Night Session (07:00 PM - 08:30 PM)">Night (07:00 PM – 08:30 PM)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Devotee Contact (Phone & Email) -->
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="devoteePhone" class="form-label">Mobile Number *</label>
+              <input type="tel" id="devoteePhone" class="form-input" placeholder="+1 (555) 000-0000" required autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label for="devoteeEmail" class="form-label">Email Address</label>
+              <input type="email" id="devoteeEmail" class="form-input" placeholder="devotee@example.com" autocomplete="email">
+            </div>
+          </div>
+
+          <!-- Attendance Mode -->
+          <div class="form-group">
+            <label class="form-label">Attendance Preference:</label>
+            <div class="radio-toggle-group">
+              <label class="radio-option">
+                <input type="radio" name="attendanceMode" value="in-person" checked>
+                <span>Attending in Person at Mandir</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="attendanceMode" value="remote">
+                <span>Remote Sankalpam (Prasadam will be mailed)</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" onclick="closePujaModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="pujaSubmitCta">Confirm & Pay Dakshina ($21)</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2: Deity Darshan Fullscreen Zoom -->
+  <div class="modal-backdrop hidden" id="darshanZoomModal" role="dialog" aria-modal="true" aria-label="Fullscreen Deity Darshan">
+    <div class="darshan-modal-content">
+      <button class="modal-close-round" onclick="closeDarshanModal()" aria-label="Close fullscreen">✕</button>
+      <div class="darshan-image-wrapper">
+        <img id="darshanZoomImage" src="" alt="Fullscreen Sacred Deity Darshan">
+      </div>
+      <div class="darshan-zoom-info">
+        <h3 id="darshanZoomTitle" class="zoom-title">Shri Someshwar Jyotirlinga</h3>
+        <p id="darshanZoomSubtitle" class="zoom-desc">Blessed today with Bilva Archana and Ganga Abhishek.</p>
+        <button class="btn btn-gold bell-sound-btn" onclick="ringTempleBellSound()">🔔 Ring Bell & Pray</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Booking / Donation Success Confirmation Receipt -->
+  <div class="modal-backdrop hidden" id="successModalBackdrop" role="dialog" aria-modal="true" aria-label="Receipt confirmation">
+    <div class="modal-card success-card">
+      <div class="success-top-graphic">
+        <div class="success-om-circle">
+          <span>🕉️</span>
+        </div>
+        <h3 class="success-title">Dhanya Ho! Blessings Received</h3>
+        <p class="success-sub">Your sacred seva has been auspiciously recorded with the temple priests.</p>
+      </div>
+
+      <div class="receipt-box" id="receiptContent">
+        <!-- Injected via JavaScript -->
+      </div>
+
+      <div class="success-actions">
+        <button class="btn btn-primary full-width" onclick="closeSuccessModal()">Download Darshan Receipt</button>
+        <button class="btn btn-outline full-width" onclick="closeSuccessModal()">Return to Mandir Home</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- JavaScript -->
+  <script src="js/app.js"></script>
+</body>
+</html>
