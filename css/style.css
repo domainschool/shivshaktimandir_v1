@@ -2148,3 +2148,11 @@ a {
 .hidden {
   display: none !important;
 }
+
+/* Payment details image */
+.payment-details-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}

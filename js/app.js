@@ -9,7 +9,7 @@
 const translations = {
   en: {
     templeName: "Shri Shiv Shakti Mandir",
-    templeTagline: "Sacred Sanctuary of Shiva & Shakti",
+    templeTagline: "Indianapolis / Whiteland, IN",
     ribbonMantra: "|| ॐ नमः शिवाय • ॐ ऐं ह्रीं क्लीं चामुण्डायै विच्चे ||",
     badgeTodayDarshan: "🪔 TODAY'S ALANKARAM & DARSHAN",
     darshanHeading: "Daily Divine Darshan",
@@ -46,7 +46,7 @@ const translations = {
   },
   hi: {
     templeName: "श्री शिव शक्ति मंदिर",
-    templeTagline: "शिव एवं शक्ति का पावन धाम",
+    templeTagline: "Indianapolis / Whiteland, IN",
     ribbonMantra: "|| ॐ नमः शिवाय • ॐ ऐं ह्रीं क्लीं चामुण्डायै विच्चे ||",
     badgeTodayDarshan: "🪔 आज का अलङ्कार एवं दर्शन",
     darshanHeading: "दैनिक दिव्य दर्शन",
@@ -83,7 +83,7 @@ const translations = {
   },
   gu: {
     templeName: "શ્રી શિવ શક્તિ મંદિર",
-    templeTagline: "શિવ અને શક્તિનું પવિત્ર ધામ",
+    templeTagline: "Indianapolis / Whiteland, IN",
     ribbonMantra: "|| ૐ નમઃ શિવાય • ૐ ઐં હ્રીં ક્લીં ચામુંડાયૈ વિચ્ચે ||",
     badgeTodayDarshan: "🪔 આજના શૃંગાર દર્શન",
     darshanHeading: "દૈનિક દિવ્ય દર્શન",
@@ -120,7 +120,7 @@ const translations = {
   },
   sa: {
     templeName: "श्री शिव शक्ति मन्दिरम्",
-    templeTagline: "शिव-शक्त्योः परमं पावनं धाम",
+    templeTagline: "Indianapolis / Whiteland, IN",
     ribbonMantra: "|| ॐ नमः शिवाय • ॐ ऐं ह्रीं क्लीं चामुण्डायै विच्चे ||",
     badgeTodayDarshan: "🪔 अद्यतनं शृङ्गार दर्शनम्",
     darshanHeading: "नित्य दिव्य दर्शनम्",
@@ -801,7 +801,7 @@ function applyLanguage(lang) {
     ribbonEl.textContent = t.ribbonMantra;
   }
 
-  updateTempleStatus();
+
   showToast(`Language changed to ${lang.toUpperCase()}`);
 }
 
@@ -834,8 +834,8 @@ function notifyAartiReminder() {
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Initial Temple Status
-  updateTempleStatus();
-  setInterval(updateTempleStatus, 60000); // Check every minute
+
+
 
   // 2. Carousel & Touch Swipes
   initCarousel();
@@ -871,3 +871,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   console.log("🕉️ Shri Shiv Shakti Mandir Web Portal Initialized Successfully.");
 });
+
+// ==========================================================================
+// PAYMENT DETAILS MODAL (Donate / Seva booking)
+// ==========================================================================
+function openPaymentModal(label) {
+  const modal = document.getElementById('paymentModalBackdrop');
+  const sub = document.getElementById('paymentModalSub');
+  if (sub) sub.textContent = label ? `Seva: ${label}` : 'Donation';
+  const fab = document.getElementById('fabContainer');
+  if (fab) fab.classList.remove('expanded');
+  if (modal) {
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closePaymentModal() {
+  const modal = document.getElementById('paymentModalBackdrop');
+  if (modal) {
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+}
