@@ -43,7 +43,7 @@
           </div>
           <div class="temple-titles">
             <h1 class="temple-name" data-i18n="templeName">Shri Shiv Shakti Mandir</h1>
-            <p class="temple-tagline" data-i18n="templeTagline">Indianapolis / Whiteland, IN</p>
+            <p class="temple-tagline" data-i18n="templeTagline">3868 E Worthsville Rd, Whiteland, IN 46184</p>
           </div>
         </div>
 
@@ -177,8 +177,8 @@
         </div>
       </section>
 
-      <!-- Section 3: Pujas -->
-      <section class="section pujas-section" id="pujasSection" aria-labelledby="pujasTitle">
+      <!-- Section 3: Pujas (Hidden for now) -->
+      <section class="section pujas-section hidden" id="pujasSection" aria-labelledby="pujasTitle">
         <div class="section-header">
           <div class="header-title-group">
             <span class="sacred-badge" data-i18n="badgePujas">🏷️ PUJAS</span>
@@ -251,7 +251,6 @@
         <p>© 2026 Shri Shiv Shakti Mandir Trust. All Rights Reserved.</p>
         <p class="footer-links">
           <a href="#darshanSection">Daily Darshan</a> •
-          <a href="#pujasSection">Sevas</a> • 
           <a href="#donateSection">Donate</a>
         </p>
       </div>
@@ -271,7 +270,7 @@
         <span class="nav-icon">⏱️</span>
         <span class="nav-label" data-i18n="navTimings">Timings</span>
       </button>
-      <button class="nav-item" onclick="scrollToSection('pujasSection', this)" aria-label="Pujas">
+      <button class="nav-item hidden" id="navPujasBtn" onclick="scrollToSection('pujasSection', this)" aria-label="Pujas">
         <span class="nav-icon">🌸</span>
         <span class="nav-label" data-i18n="navPujas">Pujas</span>
       </button>
@@ -323,7 +322,27 @@
         <button class="modal-close-btn" onclick="closePaymentModal()" aria-label="Close dialog">✕</button>
       </div>
       <div class="modal-body">
-        <img src="assets/images/payment_details.jpg" alt="Temple payment details" class="payment-details-img" id="paymentDetailsImg">
+        <div class="zelle-payment-card">
+          <div class="zelle-badge">
+            <span class="zelle-logo-text">Zelle®</span>
+            <span class="zelle-tag">Direct Mandir Offering</span>
+          </div>
+          <p class="zelle-instruction">Please send your seva dakshina or temple donation using our official Zelle ID:</p>
+          <div class="zelle-id-box">
+            <div class="zelle-id-content">
+              <span class="zelle-label">Zelle ID / Email</span>
+              <span class="zelle-id-value" id="zelleIdText">shaktarmandir26@gmail.com</span>
+            </div>
+            <button class="btn btn-outline zelle-copy-btn" id="copyZelleBtn" onclick="copyZelleId()" title="Copy Zelle ID">
+              <span class="copy-icon" id="copyZelleIcon">📋</span>
+              <span id="copyZelleLabel">Copy</span>
+            </button>
+          </div>
+          <div class="zelle-note">
+            <p>🙏 <em>Please include your name and the purpose of the donation/seva in the memo.</em></p>
+            <p class="zelle-subtext">Shri Shiv Shakti Mandir, Whiteland, IN</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

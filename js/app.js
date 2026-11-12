@@ -9,7 +9,7 @@
 const translations = {
   en: {
     templeName: "Shri Shiv Shakti Mandir",
-    templeTagline: "Indianapolis / Whiteland, IN",
+    templeTagline: "3868 E Worthsville Rd, Whiteland, IN 46184",
     ribbonMantra: "|| ॐ नमः शिवाय • ॐ ऐं ह्रीं क्लीं चामुण्डायै विच्चे ||",
     badgeTodayDarshan: "🪔 TODAY'S ALANKARAM & DARSHAN",
     darshanHeading: "Daily Divine Darshan",
@@ -46,7 +46,7 @@ const translations = {
   },
   hi: {
     templeName: "श्री शिव शक्ति मंदिर",
-    templeTagline: "Indianapolis / Whiteland, IN",
+    templeTagline: "3868 E Worthsville Rd, Whiteland, IN 46184",
     ribbonMantra: "|| ॐ नमः शिवाय • ॐ ऐं ह्रीं क्लीं चामुण्डायै विच्चे ||",
     badgeTodayDarshan: "🪔 आज का अलङ्कार एवं दर्शन",
     darshanHeading: "दैनिक दिव्य दर्शन",
@@ -83,7 +83,7 @@ const translations = {
   },
   gu: {
     templeName: "શ્રી શિવ શક્તિ મંદિર",
-    templeTagline: "Indianapolis / Whiteland, IN",
+    templeTagline: "3868 E Worthsville Rd, Whiteland, IN 46184",
     ribbonMantra: "|| ૐ નમઃ શિવાય • ૐ ઐં હ્રીં ક્લીં ચામુંડાયૈ વિચ્ચે ||",
     badgeTodayDarshan: "🪔 આજના શૃંગાર દર્શન",
     darshanHeading: "દૈનિક દિવ્ય દર્શન",
@@ -120,7 +120,7 @@ const translations = {
   },
   sa: {
     templeName: "श्री शिव शक्ति मन्दिरम्",
-    templeTagline: "Indianapolis / Whiteland, IN",
+    templeTagline: "3868 E Worthsville Rd, Whiteland, IN 46184",
     ribbonMantra: "|| ॐ नमः शिवाय • ॐ ऐं ह्रीं क्लीं चामुण्डायै विच्चे ||",
     badgeTodayDarshan: "🪔 अद्यतनं शृङ्गार दर्शनम्",
     darshanHeading: "नित्य दिव्य दर्शनम्",
@@ -753,17 +753,16 @@ function initScrollObserver() {
     { id: 'topHeader', navIndex: 0 },
     { id: 'darshanSection', navIndex: 1 },
     { id: 'timetableSection', navIndex: 2 },
-    { id: 'pujasSection', navIndex: 3 },
-    { id: 'donateSection', navIndex: 4 }
+    { id: 'donateSection', navIndex: 3 }
   ];
 
   window.addEventListener('scroll', () => {
     const scrollPos = window.scrollY + 180;
-    const navItems = document.querySelectorAll('.mobile-bottom-nav .nav-item');
+    const navItems = Array.from(document.querySelectorAll('.mobile-bottom-nav .nav-item')).filter(btn => !btn.classList.contains('hidden'));
 
     for (let i = sections.length - 1; i >= 0; i--) {
       const sectionEl = document.getElementById(sections[i].id);
-      if (sectionEl && scrollPos >= sectionEl.offsetTop) {
+      if (sectionEl && !sectionEl.classList.contains('hidden') && scrollPos >= sectionEl.offsetTop) {
         navItems.forEach((btn, idx) => {
           btn.classList.toggle('active', idx === sections[i].navIndex);
         });
@@ -893,4 +892,47 @@ function closePaymentModal() {
     modal.classList.add('hidden');
     document.body.style.overflow = '';
   }
+}
+
+function copyZelleId() {
+  const zelleId = 'shaktarmandir26@gmail.com';
+  const copyLabel = document.getElementById('copyZelleLabel');
+  const copyIcon = document.getElementById('copyZelleIcon');
+
+  const onCopied = () => {
+    if (copyLabel) copyLabel.textContent = 'Copied!';
+    if (copyIcon) copyIcon.textContent = '✓';
+    showToast("✓ Zelle ID copied to clipboard: shaktarmandir26@gmail.com");
+    setTimeout(() => {
+      if (copyLabel) copyLabel.textContent = 'Copy';
+      if (copyIcon) copyIcon.textContent = '📋';
+    }, 2500);
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(zelleId).then(onCopied).catch(() => {
+      fallbackCopyText(zelleId, onCopied);
+    });
+  } else {
+    fallbackCopyText(zelleId, onCopied);
+  }
+}
+
+function fallbackCopyText(text, callback) {
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.style.position = 'fixed';
+  textarea.style.top = '0';
+  textarea.style.left = '0';
+  textarea.style.opacity = '0';
+  document.body.appendChild(textarea);
+  textarea.focus();
+  textarea.select();
+  try {
+    document.execCommand('copy');
+    if (callback) callback();
+  } catch (err) {
+    showToast("Zelle ID: shaktarmandir26@gmail.com");
+  }
+  document.body.removeChild(textarea);
 }

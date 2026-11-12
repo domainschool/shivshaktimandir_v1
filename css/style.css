@@ -2156,3 +2156,125 @@ a {
   height: auto;
   border-radius: 12px;
 }
+
+/* Zelle Payment Card */
+.zelle-payment-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: #FFFDF8;
+  padding: 4px 2px;
+}
+
+.zelle-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--color-border-silk);
+}
+
+.zelle-logo-text {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #7414CA;
+  letter-spacing: -0.5px;
+}
+
+.zelle-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-saffron-dark);
+  background: #FFF3DE;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(224, 102, 102, 0.2);
+}
+
+.zelle-instruction {
+  font-size: 0.88rem;
+  color: var(--color-charcoal);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.zelle-id-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  background: #FFFFFF;
+  border: 1.5px dashed var(--color-saffron);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.zelle-id-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.zelle-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-charcoal-muted);
+}
+
+.zelle-id-value {
+  font-family: monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-vermillion);
+  word-break: break-all;
+}
+
+.zelle-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border-radius: var(--radius-sm);
+  background: var(--color-cream);
+  border: 1px solid var(--color-border-silk);
+  color: var(--color-charcoal);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.zelle-copy-btn:hover,
+.zelle-copy-btn:active {
+  background: var(--color-saffron);
+  color: #FFFFFF;
+  border-color: var(--color-saffron);
+}
+
+.zelle-note {
+  background: #FFF9EE;
+  border-left: 3px solid var(--color-saffron);
+  padding: 10px 12px;
+  border-radius: var(--radius-xs);
+  font-size: 0.8rem;
+  color: var(--color-charcoal-muted);
+  line-height: 1.45;
+}
+
+.zelle-note p {
+  margin: 0;
+}
+
+.zelle-note .zelle-subtext {
+  margin-top: 4px;
+  font-size: 0.72rem;
+  color: var(--color-charcoal-muted);
+}
